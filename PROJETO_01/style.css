@@ -1,173 +1,244 @@
+/* Reset básico para toda a página */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
+    margin: 0;                  /* Remove margens padrão */
+    padding: 0;                 /* Remove padding padrão */
+    box-sizing: border-box;     /* Inclui padding e border no cálculo de largura/altura */
+    list-style: none;           /* Remove bullets de listas */
+    font-family: "Poppins", sans-serif; /* Fonte padrão para todo o site */
 }
 
+/* Estilo do corpo da página */
 body {
-    background-color: black;
-    color: #fff;
-    font-size: 16px;
-    overflow: hidden;
+    background-color: black;    /* Fundo preto */
+    color: white;               /* Cor do texto branco */
+    font-size: 16px;            /* Tamanho padrão do texto */
+    overflow: hidden;           /* Evita barras de rolagem */
 }
 
+/* Cabeçalho da página */
 header {
-    position: fixed;
-    width: 80vw;
-    left: 50%;
+    position: fixed;            /* Fixa o header no topo */
+    width: 80vw;                /* Largura de 80% da viewport */
+    left: 50%;                  /* Centraliza horizontalmente */
     transform: translateX(-50%);
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 600px;
-    gap: 100px;
-    z-index: 2;
-}
+    display: grid;              /* Layout em grid */
+    align-items: center;        /* Alinha itens verticalmente */
+    grid-template-columns: 1fr 600px; /* Colunas do grid: logo + nav */
+    gap: 100px;                 /* Espaçamento entre colunas */
+    z-index: 2;                 /* Fica acima de outros elementos */
 
-header img {
-    width: 250px;
-}
-
-header nav ul {
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-}
-
-section {
-    background-image: radial-gradient(#7f3d9e, #6d00d9);
-    height: 100vh;
-    position: relative;
-}
-
-.list {
-    width: 70vw;
-    height: 100%;
-    margin: auto;
-    position: relative;
-}
-
-.item {
-    position: absolute;
-    inset: 0;
-}
-
-.car-img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 65%;
-}
-
-.list img {
-    width: 100%;
-    transform: rotate(-20deg);
-}
-
-.content {
-    position: absolute;
-    right: 100px;
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: end;
-    gap: 20px;
-}
-
-.car-information {
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 8em;
-    line-height: 1em;
-}
-
-.description {
-    color: rgb(214, 211, 211);
-    font-size: 12px;
-    text-align: right;
-    max-width: 400px;
-}
-
-.information {
-    border-radius: 30px;
-    height: 35px;
-    width: 120px;
-    text-transform: uppercase;
-    border: 2px solid #791fd3;
-    background-color: #beff1b;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.arrows{
-    width: 100vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -25px);
-    display: flex;
-    justify-content: space-between;
-}
-
-.arrows button img {
-    width: 30px;
-    margin-top: 4px;
-}
-
-.arrows button:nth-child(1){
     & img {
-        transform: scale(-1);
+        width: 250px;           /* Largura da logo */
+    }
+
+    & nav ul {
+        display: grid;
+        grid-template-columns: repeat(3, 200px); /* 3 itens de menu com 200px cada */
     }
 }
 
-.arrows button{
-    top: 60%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
+/* Seção principal do slider */
+section {
+    background-image: radial-gradient(#7f3d93, #6d00d9); /* Fundo degradê */
+    height: 100vh;            /* Ocupa toda altura da tela */
+    position: relative;
 
+    /* Lista de slides */
+    & .list {
+        width: 70vw;
+        height: 100%;
+        margin: auto;
+        position: relative;
+
+        /* Cada slide individual */
+        & .item {
+            position: absolute;  /* Sobreposto aos outros slides */
+            inset: 0;            /* Ocupa toda a área do pai */
+
+            /* Imagem do carro */
+            & .car-img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%); /* Centraliza verticalmente */
+                width: 70%;
+
+                & img {
+                    width: 100%;
+                    transform: rotate(-20deg); /* Inclinação da imagem */
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: black;
+                    width: 100%;
+                    height: 100px;
+                    top: 130%;
+                    left: 5%;
+                    border-radius: 50%;
+                    filter: blur(50px); /* Sombra embaixo do carro */
+                }
+            }
+
+            /* Conteúdo textual do slide */
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .car-information {
+                    font-weight: bold; /* Informações importantes em negrito */
+                }
+
+                & h2 {
+                    font-size: 8em;
+                    line-height: 1em;
+                    font-family: "League Gothic", sans-serif; /* Fonte de destaque */
+                }
+
+                & .description {
+                    color: #d9d9d9d9;
+                    font-size: 12px;
+                    text-align: right;
+                    max-width: 400px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 120px;
+                    text-transform: uppercase; /* Texto em maiúsculas */
+                    border: 2px solid #6d00d9;
+                    background-color: #beff1b;
+                    color: black;
+                    cursor: pointer; /* Muda o cursor ao passar o mouse */
+                    font-weight: bold;
+                    font-family: "League Gothic", sans-serif;
+                }
+            }
+        }
+
+        /* Linha horizontal abaixo dos slides */
+        &::before {
+            content: '';
+            position: absolute;
+            height: 200px;
+            width: 100%;
+            top: 50%;
+            border-top: 1px solid white;
+        }
+    }
+
+    /* Botões de seta do slider */
+    .arrows {
+        width: 70vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px);
+        display: flex;
+        justify-content: space-between;
+
+        & button {
+            top: 60%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+
+            & img {
+                width: 30px;
+                margin-top: 4px;
+            }
+
+            &:hover {
+                background-color: #beff1b; /* Destaque ao passar o mouse */
+            }
+        }
+    }
+
+    /* Indicadores (dots e número do slide) */
+    .indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+
+        & .number {
+            font-size: 5em;
+            font-family: "League Gothic", sans-serif;
+        }
+
+        & ul {
+            display: flex;
+            gap: 10px;
+
+            & li {
+                width: 50px;
+                height: 5px;
+                background-color: #beff1b;
+                border-radius: 5px;
+                transition: 0.5s;
+            }
+
+            & .active {
+                background-color: white; /* Destaque para o slide ativo */
+            }
+        }
+    }
 }
 
-.arrows button:hover{
-    background-color: #beff1b;
-}
+/* Transições e animações do slider */
+section .list {
+    --calculation: 1; /* Variável CSS para animação de transição */
 
-.indicators {
-    position: absolute;
-    top: 50%;
-    transform: translateX(-50%);
-    left: 50%;
-    height: 200px;
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 15px;
-}
+    & .item {
+        transform: translateX(calc(100vw * var(--calculation)));
+        transition: 0.5s;
+        opacity: 0; /* Slides começam invisíveis */
 
-.number{
-    font-size: 5em;
-}
+        & .car-img img {
+            transform: rotate(0);
+            transition: 0.5s;
+            transition-delay: 0.3s;
+        }
+    }
 
-.indicators ul{
-    display: flex;
-    gap: 10px;
-}
+    & .content .car-information,
+    h2, .description, .information {
+        transform: translateX(calc(200px * var(--calculation)));
+        transition: 0.7s;
+        transition-delay: 0.3s;
+        opacity: 0; /* Conteúdo começa invisível */
+    }
 
-.indicators li{
-    width: 50px;
-    height: 5px;
-    background-color: #beff1b;
-    border-radius: 5px;
-    transition: 0.5s;
-}
+    /* Slide ativo */
+    & .active {
+        transform: translateX(0);
+        transition: 0.5s;
+        opacity: 1; /* Slide visível */
 
-.indicators active{
-    background-color:white;
+        & .car-img img {
+            transform: rotate(-20deg); /* Inclinação ao ativar */
+        }
+
+        & .content .car-information,
+        h2, .description, .information {
+            transform: translateX(0);
+            opacity: 1; /* Conteúdo visível */
+        }
+    }
 }

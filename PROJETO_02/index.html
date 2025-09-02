@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Lading Page</title>
+    <title>Login</title>
 </head>
+
 <body>
-    <main>
-
-        <header>
-            <div class="logo">
-                <p>logo</p>
+    <main class="container">
+        <form>
+            <h1>Login TecMundo</h1>
+            <div class="input-box">
+                <input type="email" placeholder="Usuario">
+                <i class="bx bxs-user"></i>
             </div>
-            <nav>
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                    <li>Login</li>
-                </ul>
-            </nav>
-        </header>
+            <div class="input-box">
+                <input type="password" placeholder="Senha">
+                <i class="bx bxs-lock-alt"></i>
+            </div>
 
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar senha
+                </label>
+                <a href="#">Esqueci senha</a>
+            </div>
 
+            <button type="submit" class="login">Login</button>
 
+            <div class="register-link">
+                <p>Não tem uma conta ? <a href="#">Cadastre-se</a></p>
+            </div>
+        </form>
     </main>
 </body>
+
 </html>

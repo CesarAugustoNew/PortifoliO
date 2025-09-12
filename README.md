@@ -6,3 +6,5 @@ Projetos Front-end
 - HTML
 - CSS
 - JAVASCRIPT
+- REACT
+- TAILWIND
